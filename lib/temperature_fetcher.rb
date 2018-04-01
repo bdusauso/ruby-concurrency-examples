@@ -22,8 +22,10 @@ class TemperatureFetcher
     rescue RestClient::NotFound
       puts "No data found for #{city}"
     else
-      content = JSON.parse(response.body)
-      [@city, content["main"]["temp"]]
+      content     = JSON.parse(response.body)
+      temperature = content["main"]["temp"].to_i
+
+      [@city, temperature]
     end
   end
 
