@@ -2,22 +2,21 @@ require "concurrent"
 require "benchmark"
 
 require_relative "./temperature_fetcher.rb"
+require_relative "./temperature_formatter.rb"
 require_relative "./cities.rb"
 
+# Just so 'temperatures' exists and is not nil
+temperatures = []
 
 time = Benchmark.measure do
-  future_temps = CITIES.map do |city|
+  temperatures = CITIES.map do |city|
     Concurrent::Future.execute { TemperatureFetcher.new(city).fetch }
   end
 
-  until future_temps.all?(&:fulfilled?) do
+  until temperatures.all?(&:fulfilled?) do
     sleep(0.05)
-  end
-
-  future_temps.each do |ft|
-    value = ft.value
-    puts "#{value.first}: #{value.last}"
   end
 end
 
+puts TemperatureFormatter.format(temperatures.map(&:value))
 puts "\nTime: #{time}"
