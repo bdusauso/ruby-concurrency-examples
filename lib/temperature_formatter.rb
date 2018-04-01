@@ -1,9 +1,9 @@
 require 'terminal-table'
 
-class TemperatureOutputter
+class TemperatureFormatter
 
-  def self.print(temperatures)
-    table = Terminal::Table.new :rows => temperatures
+  def self.format(temperatures)
+    Terminal::Table.new :rows => temperatures
   end
 
 end
