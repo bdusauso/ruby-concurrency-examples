@@ -10,4 +10,13 @@ CITIES = %w(
   Vienna
   Baku
   Bucharest
+  Lisbon
+  Oslo
+  Copenhagen
+  Helsinki
+  Moscow
+  Warsaw
+  Roma
+  Prague
+  Reykjavik
 )
