@@ -19,4 +19,4 @@ CITIES = %w(
   Roma
   Prague
   Reykjavik
-)
+).sort
