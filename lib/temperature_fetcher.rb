@@ -3,7 +3,7 @@ require "json"
 
 class TemperatureFetcher
 
-  API_KEY  = "ce58792015f3118e4da9a8f26a318498"
+  API_KEY  = ""
   BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
   DEFAULT_PARAMS = {
